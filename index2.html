@@ -17,6 +17,7 @@
             setInterval( () => {
                 let nimbus = document.getElementById('el-nimbus');
                 let transilvanian = document.getElementById('el-transylvanianbarb');
+                let goldensnitch = document.getElementById('el-goldensnitch');
                 let tPosition = transilvanian.getAttribute("position")
                 if (tPosition.x < limit) {
                 tPosition.x += 5
@@ -39,6 +40,13 @@
                 nPosition.z = 15
                 }
                 nimbus.setAttribute("position", nPosition)
+                gRotation = goldensnitch.getAttribute("rotation")
+                gRotation.y += 2;
+                if (gRotation.y > 360) {
+                  gRotation.y = 0
+                }
+                goldensnitch.setAttribute("rotation", gRotation)
+                console.log('gRotation', gRotation);
             }, 30)
             }
         });
