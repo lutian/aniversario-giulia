@@ -51,6 +51,7 @@
   </head>
   <body>
     <a-scene fog="type: linear; color: #AAA">
+      <a-sky src="assets/fondo.jpg" rotation="0 -130 0"></a-sky>
       <a-text value="Parabens Giulia!" font="assets/fonts/harrypotter.fnt" font-image="assets/fonts/harrypotter.png" color="#FFD700" width="6" position="-0.8 3.1 -2.1"
       rotation="50 0 0"></a-text>
       <a-text value="Parabens Giulia!" font="assets/fonts/harrypotter.fnt" font-image="assets/fonts/harrypotter.png" color="#caa906" width="6" position="-0.8 3.108 -2.108"
@@ -66,6 +67,7 @@
       <a-gltf-model move-models src="#transylvanianbarb" id="el-transylvanianbarb" scale="0.05 0.05 0.05" rotation="-30 95 30" position="-22 -11 -15" gltf-model=""></a-gltf-model>
       <a-gltf-model src="#goldensnitch" id="el-goldensnitch" scale="8 8 8" rotation="20 90 0" position="-18 21 0" gltf-model=""></a-gltf-model>
       <a-gltf-model src="#hogwarts" id="el-hogwarts" scale="5 5 5" rotation="-5 10 0" position="-15 -9 20" gltf-model=""></a-gltf-model>
+      <a-entity camera look-controls position="0 1.6 0"></a-entity>
     </a-scene>
   </body>
 </html>
