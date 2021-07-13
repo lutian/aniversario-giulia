@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Parabéns Giulia!</title>
+    <meta name="description" content="Aniversário da Giulia">
+    <script src="js/aframe-master.js"></script>
+    <script>
+        const limit = 500;
+        AFRAME.registerComponent('move-models', {
+            init: function () {
+            setTimeout( () => {
+                this.moveModels()
+            }, 5000)
+            },
+            moveModels: function () {
+            setInterval( () => {
+                let nimbus = document.getElementById('el-nimbus');
+                let transilvanian = document.getElementById('el-transylvanianbarb');
+                let goldensnitch = document.getElementById('el-goldensnitch');
+                /*
+                let tPosition = transilvanian.getAttribute("position")
+                if (tPosition.x < limit) {
+                tPosition.x += 5
+                tPosition.y += 2
+                tPosition.z -= 5
+                } else if (tPosition.x >= limit) {
+                tPosition.x = -500
+                tPosition.y = 27
+                tPosition.z = 15
+                }
+                transilvanian.setAttribute("position", tPosition)
+                let nPosition = nimbus.getAttribute("position")
+                if (nPosition.x < limit) {
+                nPosition.x += 5.5
+                nPosition.y += 2
+                nPosition.z -= 5
+                } else if (nPosition.x >= limit) {
+                nPosition.x = -500
+                nPosition.y = 30
+                nPosition.z = 15
+                }
+                nimbus.setAttribute("position", nPosition)
+                */
+                gRotation = goldensnitch.getAttribute("rotation")
+                gRotation.y += 2;
+                if (gRotation.y > 360) {
+                  gRotation.y = 0
+                }
+                goldensnitch.setAttribute("rotation", gRotation)
+                console.log('gRotation', gRotation);
+            }, 30)
+            }
+        });
+    </script>
+    <style>
+        #arjsDebugUIContainer {
+            display: none !important;
+        }
+    </style>
+  </head>
+  <body>
+    <a-scene>
+      <a-text value="Parabens Giulia!" font="assets/fonts/harrypotter.fnt" font-image="assets/fonts/harrypotter.png" color="#FFD700" width="6" position="-0.8 3.1 -2.1"
+      rotation="50 0 0"></a-text>
+      <a-text value="Parabens Giulia!" font="assets/fonts/harrypotter.fnt" font-image="assets/fonts/harrypotter.png" color="#caa906" width="6" position="-0.8 3.108 -2.108"
+      rotation="50 0 0"></a-text>
+      <a-assets>
+        <img id="harrypotter" src="assets/harrypotter.png">
+        <a-asset-item id="nimbus" src="assets/models/nimbus2000/scene.gltf"></a-asset-item>
+        <a-asset-item id="transylvanianbarb" src="assets/models/transylvanianbarb/scene.gltf"></a-asset-item>
+        <a-asset-item id="goldensnitch" src="assets/models/goldensnitch/scene.gltf"></a-asset-item>
+        <a-asset-item id="hogwarts" src="assets/models/hogwarts/scene.gltf"></a-asset-item>
+      </a-assets>
+
+      <a-entity layer="type: quad; src: #harrypotter" position="0 1.105 -1.5" scale="1 1.7 1"></a-entity>
+      <a-gltf-model src="#nimbus" id="el-nimbus" scale="0.2 0.2 0.2" rotation="0 35 40" position="-18 -8 -1" gltf-model=""></a-gltf-model>
+      <a-gltf-model move-models="" src="#transylvanianbarb" id="el-transylvanianbarb" scale="0.05 0.05 0.05" rotation="-40 115 40" position="-22 -11 -1" gltf-model=""></a-gltf-model>
+      <a-gltf-model src="#goldensnitch" id="el-goldensnitch" scale="8 8 8" rotation="20 90 0" position="-18 21 0" gltf-model=""></a-gltf-model>
+      <a-gltf-model src="#hogwarts" id="el-hogwarts" scale="5 5 5" rotation="-5 10 0" position="-15 -9 20" gltf-model=""></a-gltf-model>
+      <a-entity camera look-controls position="0 1.6 0"></a-entity>
+    </a-scene>
+  </body>
+</html>
