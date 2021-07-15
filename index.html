@@ -26,7 +26,6 @@
                   tPosition.y += 2
                   tPosition.z -= 5
                 } else if (tPosition.x >= limit) {
-                  times += 1;
                   if (times > 5) {
                     tPosition.x = -5
                     tPosition.y = 8
@@ -44,7 +43,7 @@
                   nPosition.y += 2
                   nPosition.z -= 5
                 } else if (nPosition.x >= limit) {
-                  if (times > 5) {
+                  if (times > 25) {
                     nPosition.x = -2
                     nPosition.y = 8
                     nPosition.z = 50
@@ -56,17 +55,24 @@
                 }
                 nimbus.setAttribute("position", nPosition)
                 /**/
-                gRotation = goldensnitch.getAttribute("rotation")
+                let gRotation = goldensnitch.getAttribute("rotation")
+                let gPosition = goldensnitch.getAttribute("position")
                 gRotation.y += 2;
                 if (gRotation.y > 360) {
                   gRotation.y = 0
                 }
+                if (times < 51) {
+                  gPosition.x += 1;
+                } else if (times < 101) {
+                  gPosition.x -= 1;
+                }
                 goldensnitch.setAttribute("rotation", gRotation)
-                console.log('times', times);
-                if(times >5) {
+                goldensnitch.setAttribute("position", gPosition)
+                if(times > 100) {
                   times = 0;
                 }
-            }, 50)
+                times += 1;
+            }, 60)
             }
         });
     </script>
