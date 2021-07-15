@@ -7,6 +7,7 @@
     <script src="js/aframe-master.js"></script>
     <script>
         const limit = 500;
+        let times = 0;
         AFRAME.registerComponent('move-models', {
             init: function () {
             setTimeout( () => {
@@ -21,24 +22,37 @@
                 /**/
                 let tPosition = transilvanian.getAttribute("position")
                 if (tPosition.x < limit) {
-                tPosition.x += 5
-                tPosition.y += 2
-                tPosition.z -= 5
+                  tPosition.x += 5
+                  tPosition.y += 2
+                  tPosition.z -= 5
                 } else if (tPosition.x >= limit) {
-                tPosition.x = -500
-                tPosition.y = 27
-                tPosition.z = 15
+                  times += 1;
+                  if (times > 5) {
+                    tPosition.x = -5
+                    tPosition.y = 8
+                    tPosition.z = 50
+                  } else {
+                    tPosition.x = -500
+                    tPosition.y = 27
+                    tPosition.z = 55
+                  }
                 }
                 transilvanian.setAttribute("position", tPosition)
                 let nPosition = nimbus.getAttribute("position")
                 if (nPosition.x < limit) {
-                nPosition.x += 5.5
-                nPosition.y += 2
-                nPosition.z -= 5
+                  nPosition.x += 5.5
+                  nPosition.y += 2
+                  nPosition.z -= 5
                 } else if (nPosition.x >= limit) {
-                nPosition.x = -500
-                nPosition.y = 30
-                nPosition.z = 15
+                  if (times > 5) {
+                    nPosition.x = -2
+                    nPosition.y = 8
+                    nPosition.z = 50
+                  } else {
+                    nPosition.x = -500
+                    nPosition.y = 30
+                    nPosition.z = 55
+                  }
                 }
                 nimbus.setAttribute("position", nPosition)
                 /**/
@@ -48,8 +62,11 @@
                   gRotation.y = 0
                 }
                 goldensnitch.setAttribute("rotation", gRotation)
-                console.log('gRotation', gRotation);
-            }, 30)
+                console.log('times', times);
+                if(times >5) {
+                  times = 0;
+                }
+            }, 50)
             }
         });
     </script>
